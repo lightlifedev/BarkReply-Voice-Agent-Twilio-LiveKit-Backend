@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { afterEach, beforeEach, describe, it } from 'vitest';
 import { Assistant } from './agent.js';
 
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env' });
 
 // Initialize logger for testing
 initializeLogger({ pretty: false, level: 'debug' });

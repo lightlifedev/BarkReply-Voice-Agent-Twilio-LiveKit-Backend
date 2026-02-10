@@ -17,10 +17,9 @@ import { AccessToken } from 'livekit-server-sdk';
 import { fileURLToPath } from 'node:url';
 import { Assistant } from './agent.js';
 
-// Load environment variables from a local file.
-// Make sure to set LIVEKIT_URL, LIVEKIT_API_KEY, and LIVEKIT_API_SECRET
-// when running locally or self-hosting your agent server.
-dotenv.config({ path: '.env.local' });
+// Load environment variables from .env
+// Set LIVEKIT_URL, LIVEKIT_API_KEY, and LIVEKIT_API_SECRET when running locally or self-hosting.
+dotenv.config({ path: '.env' });
 
 export default defineAgent({
   prewarm: async (proc: JobProcess) => {
@@ -62,7 +61,7 @@ export default defineAgent({
     // To use a realtime model instead of a voice pipeline, use the following session setup instead.
     // (Note: This is for the OpenAI Realtime API. For other providers, see https://docs.livekit.io/agents/models/realtime/))
     // 1. Install '@livekit/agents-plugin-openai'
-    // 2. Set OPENAI_API_KEY in .env.local
+    // 2. Set OPENAI_API_KEY in .env
     // 3. Add import `import * as openai from '@livekit/agents-plugin-openai'` to the top of this file
     // 4. Use the following session setup instead of the version above
     // const session = new voice.AgentSession({
